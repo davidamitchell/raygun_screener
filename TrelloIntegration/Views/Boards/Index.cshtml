@@ -17,9 +17,7 @@
 @foreach (var board in Model)
 {
     <li>
-        @Html.DisplayFor(m => board.Name)
-        @Html.DisplayFor(m => board.Id)
-        @Html.ActionLink("Details", "ListCards", new { id = board.Id })
+        @Html.ActionLink(@board.Name, "ListCards", new { id = board.Id })
         
     </li>
 }
