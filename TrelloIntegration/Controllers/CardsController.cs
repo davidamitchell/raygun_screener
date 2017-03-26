@@ -40,7 +40,11 @@ namespace TrelloIntegration.Controllers
             var comment = new Comment { Text = m.NewComment.Text, CardId = cardId };
 
             // TODO wrap in try catch
-            Comment.Create(comment, this._api);
+            var newComment = Comment.Create(comment, this._api);
+            if (newComment == null)
+            {
+                return View("Error");
+            }
             return RedirectToAction("Detail", new { id = cardId });
         }
 

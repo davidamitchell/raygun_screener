@@ -142,8 +142,8 @@ namespace TrelloIntegration.Library
         }
         public static string AuthoriseUri()
         {
-            // https://trello.com/1/authorize?expiration=never&scope=read,write&response_type=token&name=TrelloIntegrationMvc&key=xyz
-            return BaseApiUri() + ApiVersion() + "/authorize?expiration=never&response_type=" + ResponseType() + "&name=" + AppName() + "&key=" + DevKey();
+            // https://trello.com/1/authorize?expiration=never&response_type=token&scope=read,write&name=TrelloIntegrationMvc&key=xyz
+            return BaseApiUri() + ApiVersion() + "/authorize?expiration=never&response_type=" + ResponseType() + "&scope=" + Scope() + "&name=" + AppName() + "&key=" + DevKey();
         }
 
         public static bool ConfigValid()
