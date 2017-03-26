@@ -20,13 +20,13 @@ namespace TrelloIntegration.Models
 
         public static Card Get(string id, ITrelloApi api)
         {
-            var card = api.GetCard(id, "id,name,desc");
+            var card = api.GetCard(id, "id,name,desc,idBoard");
             return card;
         }
 
         public static List<Card> List(string boardId, ITrelloApi api)
         {
-            var cards = api.GetCards(boardId, "id,name,desc");
+            var cards = api.GetCards(boardId, "id,name,desc,idBoard");
             return cards;
         }
 
