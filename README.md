@@ -34,8 +34,8 @@ Currently if an invalid token is passed to the application a simple "No results 
 ### Check for timeouts and network problems
 As in the case of the invalid token a "No results found" message is returned if there is a timeout or a network connection problem.  Better error handling would look at the response from RestSharp and/or the `ErrorException` value in the response.  Something like what is done: https://github.com/kamranayub/GiantBomb-CSharp/blob/master/GiantBomb.Api/Core.cs is the recommended way of handling errors returned from RestSharp.
 
-### Startup configuration excpetion type
-Currently if the configuration is invalid a `ConfigurationException` is raised.  This excpetion type is currently deprecated and a custome exception should be used instead.
+### Startup configuration exception type
+Currently if the configuration is invalid a `ConfigurationException` is raised.  This excpetion type is currently deprecated and a custom exception should be used instead.
 
 ### Dev, test, prod environments
 Different configuration, error pages etc. for each type of different runtime environments.
