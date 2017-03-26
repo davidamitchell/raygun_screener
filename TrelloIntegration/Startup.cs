@@ -16,6 +16,12 @@ namespace TrelloIntegration
             var AppName = Environment.GetEnvironmentVariable("TRELLO_APP_NAME", EnvironmentVariableTarget.Machine);
             var DevKey = Environment.GetEnvironmentVariable("TRELLO_DEV_KEY", EnvironmentVariableTarget.Machine);
 
+            if (!TrelloIntegration.Library.TrelloApiConfig.ConfigValid())
+            {
+                // not sure about this exception, perhaps should use my own
+                throw new System.Configuration.ConfigurationException("Both TRELLO_APP_NAME and TRELLO_DEV_KEY are required");
+            }
+
 
         }
         
