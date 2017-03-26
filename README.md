@@ -17,6 +17,10 @@
 ## Envronment settings
 To manage the developer api key (gotten from https://trello.com/app-key) and the application name two evnronment variables need to be set.  If these are not set the application will fail to start.
 * TRELLO_APP_NAME -- the application name
- * in windows powershell: `[Environment]::SetEnvironmentVariable("TRELLO_APP_NAME", "Some application name", "Machine")`
+  * in windows powershell: 
+ 
+```[Environment]::SetEnvironmentVariable("TRELLO_APP_NAME", "Some application name", "Machine")```
 * TRELLO_DEV_KEY -- the developer api key
- * in windows powershell: `[Environment]::SetEnvironmentVariable("TRELLO_DEV_KEY", "xyz", "Machine")`
+  * in windows powershell: 
+  
+```[Environment]::SetEnvironmentVariable("TRELLO_DEV_KEY", "xyz", "Machine")```
