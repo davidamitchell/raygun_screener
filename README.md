@@ -45,3 +45,6 @@ Missing any type of unit and front end tests
 
 ### Better logging
 Or any for that matter.  Should have different levels of loggging for the different runtime environments.
+
+### Use configuration file for `TrelloApiConfig` settings
+The `TrelloApiConfig` static class hold the configuration settings like the `baseUri` and the Trello api version.  This data could be stored in configuration files.  Could have a different one per environment which would allow something like a user acceptance environment to call a stubed api instead of the real Trello api.
