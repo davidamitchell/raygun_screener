@@ -13,14 +13,12 @@ namespace TrelloIntegration.Controllers
     {
         public ActionResult Index()
         {
-            //var token = new Token { AuthToken = "c6810c83faf3b5d25cad59a31db0a1571bb1afaac11773826ecb5af0bc335009" };
             return View(new Token());
         }
 
-        [AcceptVerbs(HttpVerbs.Post)]
+        [HttpPost]
         public ActionResult EnterToken(Token token)
         {
-            // TODO validate token is not null and not an empty string
             SessionFacade.StoreAuthToken(token.AuthToken);
             return RedirectToAction("Index", "Boards");
         }
