@@ -1,0 +1,41 @@
+﻿@model TrelloIntegration.ViewModels.CommentsView
+@{
+    ViewBag.Title = "Card detail";
+}
+
+<h3>
+    @Html.ActionLink("Boards", "Index", "Boards") > 
+    @Html.ActionLink("Cards", "Index", new { boardId = Model.Card.BoardId }) > 
+    @ViewBag.Title
+</h3>
+
+@using (Html.BeginForm("CreateComment", "Cards", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.Card.Id)
+    <p>
+        @Html.DisplayFor(m => m.Card.Description)
+    </p>
+    <div class="form-group">
+        @Html.LabelFor(m => m.NewComment.Text, "New comment:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.NewComment.Text, new { @class = "form-control", required = "required" })
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add" class="btn btn-primary" />
+        </div>
+    </div>
+}
+<ul>
+    @foreach (var comment in Model.Comments)
+    {
+        <li>
+            @Html.DisplayFor(m => comment.Text)
+        </li>
+    }
+</ul>
+

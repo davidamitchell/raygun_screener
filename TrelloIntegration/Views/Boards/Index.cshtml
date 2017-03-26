@@ -1,0 +1,26 @@
+﻿@model IEnumerable<TrelloIntegration.Models.Board>
+@{
+    ViewBag.Title = "Boards";
+}
+
+<h2>@ViewBag.Title</h2>
+@{
+    if (Model.Count() == 0)
+    {
+        <p>
+            No results found
+        </p>
+    }
+}
+
+<ul>
+@foreach (var board in Model)
+{
+    <li>
+        @Html.DisplayFor(m => board.Name)
+        @Html.DisplayFor(m => board.Id)
+        @Html.ActionLink("Details", "ListCards", new { id = board.Id })
+        
+    </li>
+}
+</ul>

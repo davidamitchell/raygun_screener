@@ -1,0 +1,31 @@
+﻿@model TrelloIntegration.Models.Token
+@{
+    ViewBag.Title = "Enter token form";
+
+    // not sure i like accessing this here
+    var authoriseUri = TrelloIntegration.Library.TrelloApiConfig.AuthoriseUri();
+}
+
+<div class="jumbotron">
+
+    @using (Html.BeginForm("EnterToken", "Home", FormMethod.Post, new { @class = "form-inline", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        
+        <div class="form-group col-md-12">
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.AuthToken, new { @class = "control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.AuthToken, new { @class = "form-control", placeholder = "trello token", required = "required" })
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="@authoriseUri" target="_blank" class="btn btn-default" title="Use this to get a authentication token from Trello">Get trello token</a>
+                <input type="submit" value="Authorise" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</div>
